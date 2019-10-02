@@ -9,7 +9,10 @@ const forecast = (longitude, latitude, callback) => {
         } else if (body.error) {
             callback('Unable to find location');
         } else {
-            callback(undefined, `${body.daily.data[0].summary} Поточна температура: ${body.currently.temperature}℃. Існує ${body.currently.precipProbability}% шанс на дощ.`);
+            callback(undefined, `${body.daily.data[0].summary} Поточна температура: ${body.currently.temperature} ℃. 
+            Існує ${body.currently.precipProbability}% шанс на дощ. 
+            Найвища температура у цей день: ${body.daily.data[0].temperatureHigh} ℃. 
+            Найнижча температура у цей день: ${body.daily.data[0].temperatureLow} ℃`);
         }
     });
 };
